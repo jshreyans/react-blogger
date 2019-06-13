@@ -1,0 +1,16 @@
+.FullPost {
+    /* width: 90%; */
+    text-align: center;
+}
+
+.Edit button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.Edit button.Delete {
+    color: red;
+    font-size: 0.9em;
+}
+

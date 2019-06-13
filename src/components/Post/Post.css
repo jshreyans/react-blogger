@@ -1,0 +1,27 @@
+.Post {
+    display: inline-block;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid black;
+    box-shadow: 0 2px 3px #ccc;
+    transition: 0.3s ease-out;    
+}
+
+.Post:hover,
+.Post:active {
+    background: #ddd;
+    cursor: pointer;
+}
+
+.Author {
+    color: grey;
+}
+
+@media (min-width: 500px) {
+    .Post {
+        max-width: 300px;
+        margin: 10px;
+    }
+}
