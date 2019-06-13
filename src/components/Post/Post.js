@@ -5,7 +5,7 @@ class Post extends Component {
   render() {
     return (
       <div className={classes.Post}>
-        <h2>Title</h2>
+        <h2>{this.props.title}</h2>
         <p className={classes.Author}>Author</p>
       </div>
     );
