@@ -21,6 +21,7 @@
 .Blog ul li a {
     text-decoration: none;
     color: black;
+    transition: 0.2s ease;
 }
 
 .Blog ul li a:hover,
@@ -42,11 +43,4 @@
     box-shadow: 0 2px 3px #ccc;
     display: flex;
     justify-content: center;
-}
-
-.NewPost {
-    width: 80%;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    margin: 20px auto;
 }
