@@ -9,7 +9,8 @@ import NewPost from "../../components/NewPost/NewPost";
 class Blog extends Component {
   state = {
     posts: [],
-    selectedPostId: null
+    selectedPostId: null,
+    error: false
   };
 
   showPostHandler = id => {
@@ -34,22 +35,38 @@ class Blog extends Component {
       .catch(err => {
         console.log(err);
         console.log("Error encountered");
+        this.setState({error: true})
       });
   }
 
   render() {
-    const posts = this.state.posts.map(post => {
-      return (
-        <Post
-          title={post.title}
-          author={post.author}
-          key={post.id}
-          clicked={() => {
-            this.showPostHandler(post.id);
-          }}
-        />
-      );
-    });
+    let posts = <p style={{ textAlign: "center" }}>Somethign went wrong!</p>;
+    // posts = this.state.posts.map(post => {
+    //   return (
+    //     <Post
+    //       title={post.title}
+    //       author={post.author}
+    //       key={post.id}
+    //       clicked={() => {
+    //         this.showPostHandler(post.id);
+    //       }}
+    //     />
+    //   );
+    // });
+    if (!this.state.error) {
+      posts = this.state.posts.map(post => {
+        return (
+          <Post
+            title={post.title}
+            author={post.author}
+            key={post.id}
+            clicked={() => {
+              this.showPostHandler(post.id);
+            }}
+          />
+        );
+      });
+    }
 
     return (
       <div className={classes.Blog}>
