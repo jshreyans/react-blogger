@@ -1,11 +1,14 @@
-import React from 'react';
-import Blog from './containers/Blog/Blog'
+import React from "react";
+import Blog from "./containers/Blog/Blog";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Blog />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Blog />
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -4,6 +4,30 @@
     flex-direction: column;
 }
 
+.Blog ul {
+    list-style: none;
+    /* background: red; */
+    margin: 0;
+    padding: 0;
+}
+
+.Blog ul li {
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.Blog ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.Blog ul li a:hover,
+.Blog ul li a:active {
+    color: #fa932f;
+}
+
 .Posts {
     display: flex;
     flex-flow: row wrap;
