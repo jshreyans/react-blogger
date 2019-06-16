@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import classes from "../../Blog/Blog.css";
@@ -40,14 +41,15 @@ class Posts extends Component {
     if (!this.state.error) {
       posts = this.state.posts.map(post => {
         return (
-          <Post
-            title={post.title}
-            author={post.author}
-            key={post.id}
-            clicked={() => {
-              this.showPostHandler(post.id);
-            }}
-          />
+          <Link to={"/" + post.id} key={post.id}>
+            <Post
+              title={post.title}
+              author={post.author}
+              clicked={() => {
+                this.showPostHandler(post.id);
+              }}
+            />
+          </Link>
         );
       });
     }
