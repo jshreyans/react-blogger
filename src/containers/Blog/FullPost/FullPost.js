@@ -9,27 +9,33 @@ class FullPost extends Component {
 
   componentWillMount() {
     if (this.props.match.params.id) {
-      if (
-        !this.state.loadedPost ||
-        (this.props.loadedPost && this.props.loadedPost.id !== this.props.id)
-      ) {
-        axios
-          .get(`/posts/${this.props.match.params.id}`)
-          .then(response => {
-            console.log(response);
-            this.setState({ loadedPost: response.data });
-          })
-          .catch(err => {
-            console.log(err);
-            console.log("Post could not be fetched!");
-          });
-      }
+      this.loadData();
+    }
+  }
+
+  componentDidUpdate() {}
+
+  loadData() {
+    if (
+      !this.state.loadedPost ||
+      (this.props.loadedPost && this.props.loadedPost.id != this.props.match.params.id)
+    ) {
+      axios
+        .get(`/posts/${this.props.match.params.id}`)
+        .then(response => {
+          console.log(response);
+          this.setState({ loadedPost: response.data });
+        })
+        .catch(err => {
+          console.log(err);
+          console.log("Post could not be fetched!");
+        });
     }
   }
 
   deletePostHandler = () => {
     axios
-      .delete(`/posts/${this.props.id}`)
+      .delete(`/posts/${this.props.match.params.id}`)
       .then(response => {
         console.log(response);
       })
@@ -41,7 +47,7 @@ class FullPost extends Component {
   render() {
     let post = <p style={{ textAlign: "center" }}>Please select a post</p>;
 
-    if (this.props.id)
+    if (this.props.match.params.id)
       post = <p style={{ textAlign: "center" }}>Loading ...</p>;
 
     if (this.state.loadedPost) {
