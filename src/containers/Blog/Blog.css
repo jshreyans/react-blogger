@@ -37,10 +37,3 @@
     margin: auto;
 }
 
-.FullPost {
-    width: 90%;
-    /* border: 1px solid black; */
-    box-shadow: 0 2px 3px #ccc;
-    display: flex;
-    justify-content: center;
-}

@@ -1,16 +1,23 @@
 .FullPost {
-    /* width: 90%; */
+  width: 100%;
+  box-shadow: 0 2px 3px #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.FullPost p {
     text-align: center;
 }
 
 .Edit button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .Edit button.Delete {
-    color: red;
-    font-size: 0.9em;
+  color: red;
+  font-size: 0.9em;
 }
-

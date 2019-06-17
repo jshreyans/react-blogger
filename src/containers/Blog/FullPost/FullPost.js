@@ -7,29 +7,34 @@ class FullPost extends Component {
     loadedPost: null
   };
 
-  componentWillMount() {
-    if (this.props.match.params.id) {
-      this.loadData();
-    }
+  componentDidMount() {
+    console.log(this.props);
+    this.loadData();
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    this.loadData();
+  }
 
   loadData() {
-    if (
-      !this.state.loadedPost ||
-      (this.props.loadedPost && this.props.loadedPost.id != this.props.match.params.id)
-    ) {
-      axios
-        .get(`/posts/${this.props.match.params.id}`)
-        .then(response => {
-          console.log(response);
-          this.setState({ loadedPost: response.data });
-        })
-        .catch(err => {
-          console.log(err);
-          console.log("Post could not be fetched!");
-        });
+    console.log("Loading full post");
+    if (this.props.match.params.id) {
+      if (
+        !this.state.loadedPost ||
+        (this.state.loadedPost &&
+          this.state.loadedPost.id !== +this.props.match.params.id)
+      ) {
+        axios
+          .get(`/posts/${this.props.match.params.id}`)
+          .then(response => {
+            console.log(response);
+            this.setState({ loadedPost: response.data });
+          })
+          .catch(err => {
+            console.log(err);
+            console.log("Post could not be fetched!");
+          });
+      }
     }
   }
 
@@ -52,7 +57,7 @@ class FullPost extends Component {
 
     if (this.state.loadedPost) {
       post = (
-        <div>
+        <div className={classes.FullPost}>
           <h1>{this.state.loadedPost.title}</h1>
           <p className={classes.Content}>{this.state.loadedPost.body}</p>
           <div className={classes.Edit}>
